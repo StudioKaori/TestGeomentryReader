@@ -10,18 +10,42 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
-        GeometryReader { geometry in
-            VStack {
+        ZStack {
+            GeometryReader { geometry in
+                
+                
+                ZStack {
+                    Color.cyan
+                    
+                    VStack(alignment: .center) {
+                        Image(systemName: "globe")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: geometry.size.width/2, height: geometry.size.height/2)
+                            //.font(.system(size: 60))
+                            .imageScale(.large)
+                            .foregroundColor(.accentColor)
+                        Text("IN geometry reader")
+                    } // END: Vstack
+                    .padding()
+                }
+            }
+            
+            
+            
+            VStack(alignment: .center) {
                 Image(systemName: "globe")
-//                    .resizable()
-//                    .frame(width: geometry.size.width, height: geometry.size.height)
-                    .font(.system(size: 60))
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50, height: 50)
+                    //.font(.system(size: 60))
                     .imageScale(.large)
                     .foregroundColor(.accentColor)
-                Text("Hello, world!")
+                Text("Not in the geometry reader!")
             }
-            .padding()
         }
+        
+
 
     }
 }
